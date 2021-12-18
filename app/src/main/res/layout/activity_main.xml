@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:gravity="center"
+            android:drawableLeft="@drawable/ic_baseline_perm_contact_calendar_24"
             android:text="Registrer" />
 
         <Button
@@ -38,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
             />
     </LinearLayout>
 

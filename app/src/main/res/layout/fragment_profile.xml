@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment"
     android:background="#F1EDED"
+
     >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-        <RelativeLayout
+
+        <ImageView
+            android:id="@+id/coverIv"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:background="#5E18B5"
-            >
+            android:background="#5E18B5">
 
 
-    </RelativeLayout>
+        </ImageView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +41,8 @@
                 android:layout_height="120dp"
                 android:background="#5E35B1"
                 android:padding="5dp"
-                android:src="@drawable/ic_baseline_add_a_photo_24"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_baseline_face_24"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,13 +59,13 @@
                     android:layout_marginLeft="5dp"
                     />
                 <TextView
-                android:id="@+id/emailtv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                />
+                    android:id="@+id/emailtv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    />
                 <TextView
                     android:id="@+id/phonetv"
                     android:layout_width="match_parent"
@@ -75,3 +83,18 @@
     </RelativeLayout>
 
 </ScrollView>
+
+<!-- floating action button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+       android:id="@+id/fabid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="19dp"
+        android:backgroundTint="#5E35B1"
+        android:src="@drawable/ic_baseline_edit_24" />
+
+</RelativeLayout>

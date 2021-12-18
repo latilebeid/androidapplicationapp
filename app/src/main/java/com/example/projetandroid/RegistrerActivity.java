@@ -41,6 +41,7 @@ public class RegistrerActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     private Dialog progressDialog;
+    private ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,12 @@ public class RegistrerActivity extends AppCompatActivity {
         etRegPassword = findViewById(R.id.etRegPass);
         tvLoginHere = findViewById(R.id.tvLoginHere);
         btnRegister = findViewById(R.id.btnRegister);
-
+        pd = new ProgressDialog(this);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Registrer");
+        //enable back button
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
         mAuth = FirebaseAuth.getInstance();
 
         btnRegister.setOnClickListener(view ->{
@@ -64,6 +70,8 @@ public class RegistrerActivity extends AppCompatActivity {
     }
 
     private void createUser(){
+        pd.show();
+        pd.setMessage("Registrer...");
         String email = etRegEmail.getText().toString();
         String password = etRegPassword.getText().toString();
 
@@ -74,12 +82,13 @@ public class RegistrerActivity extends AppCompatActivity {
             etRegPassword.setError("Password cannot be empty");
             etRegPassword.requestFocus();
         }else{
-            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.createUserWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         //sign in success, dismiss dialog and start register activity
-                        progressDialog.dismiss();
+                        pd.dismiss();
                         //sign in success, update UI with the signed in user information
                         FirebaseUser user = mAuth.getCurrentUser();
                         // get user email and uid from auth
@@ -94,15 +103,17 @@ public class RegistrerActivity extends AppCompatActivity {
                         hashMap.put("name","");
                         hashMap.put("phone", "");
                         hashMap.put("Image", "");
+                        hashMap.put("cover", "");
                         //fireBase database instance
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         //path to store user data named "Users"
+                        Toast.makeText(RegistrerActivity.this, "je suis ici", Toast.LENGTH_SHORT).show();
                         DatabaseReference reference = database.getReference("Users");
+                        Toast.makeText(RegistrerActivity.this, "je suis ici1", Toast.LENGTH_SHORT).show();
                         //put data within hashmap in database
                         reference.child(uid).setValue(hashMap);
-
                         Toast.makeText(RegistrerActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegistrerActivity.this, LoginActivity.class));
+                        startActivity(new Intent(RegistrerActivity.this, DashbordActivity.class));
                         finish();
                     }else{
                         Toast.makeText(RegistrerActivity.this, "Registration Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
