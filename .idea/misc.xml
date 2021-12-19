@@ -11,6 +11,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_perm_contact_calendar_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baselinev_face_24.xml" value="0.15" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_dashbord.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/fragment_home.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/fragment_users.xml" value="0.13385416666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/row_users.xml" value="0.4" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/menu/main_menu.xml" value="0.259375" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/menu/menu_navigateur.xml" value="0.259375" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/menu/menu_navigation.xml" value="0.259375" />

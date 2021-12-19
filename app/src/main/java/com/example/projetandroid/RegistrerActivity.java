@@ -36,10 +36,7 @@ public class RegistrerActivity extends AppCompatActivity {
     TextInputEditText etRegPassword;
     TextView tvLoginHere;
     Button btnRegister;
-
-
     FirebaseAuth mAuth;
-
     private Dialog progressDialog;
     private ProgressDialog pd;
 
@@ -78,9 +75,11 @@ public class RegistrerActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(email)){
             etRegEmail.setError("Email cannot be empty");
             etRegEmail.requestFocus();
+            pd.dismiss();
         }else if (TextUtils.isEmpty(password)){
             etRegPassword.setError("Password cannot be empty");
             etRegPassword.requestFocus();
+            pd.dismiss();
         }else{
             mAuth.createUserWithEmailAndPassword(email,password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -116,6 +115,7 @@ public class RegistrerActivity extends AppCompatActivity {
                         startActivity(new Intent(RegistrerActivity.this, DashbordActivity.class));
                         finish();
                     }else{
+                        pd.dismiss();
                         Toast.makeText(RegistrerActivity.this, "Registration Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
