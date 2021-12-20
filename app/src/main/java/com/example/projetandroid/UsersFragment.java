@@ -36,15 +36,14 @@ import java.util.Locale;
 
 public class UsersFragment extends Fragment {
 
-    RecyclerView recyclerView ;
+    RecyclerView recyclerView;
     AdapterUsers adapterUsers;
     List<Model_users> userslist;
     FirebaseAuth firebaseAuth;
+
     public UsersFragment() {
         // Required empty public constructor
     }
-
-
 
 
     @Override
@@ -65,7 +64,7 @@ public class UsersFragment extends Fragment {
 
         getAllUsers();
 
-        return view ;
+        return view;
 
     }
 
@@ -79,17 +78,17 @@ public class UsersFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userslist.clear();
-                for(DataSnapshot ds : snapshot.getChildren()){
+                for (DataSnapshot ds : snapshot.getChildren()) {
                     Model_users model_users = ds.getValue(Model_users.class);
                     //get all users ecxept currently signed
-                    if(!model_users.getUid().equals(fuser.getUid())){
+                    if (!model_users.getUid().equals(fuser.getUid())) {
                         userslist.add(model_users);
                     }
-              //adapter
-                    adapterUsers = new AdapterUsers(getActivity(),userslist);
+                    //adapter
+                    adapterUsers = new AdapterUsers(getActivity(), userslist);
 
-              //set adapter  to recycler view
-              recyclerView.setAdapter(adapterUsers);
+                    //set adapter  to recycler view
+                    recyclerView.setAdapter(adapterUsers);
                 }
             }
 
@@ -100,19 +99,18 @@ public class UsersFragment extends Fragment {
         });
 
 
-
     }
-    private void checkUserStatus(){
+
+    private void checkUserStatus() {
         //get current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        if (user != null){
+        if (user != null) {
             //user is signed in stay here
             //set email of logged in user
             //mprofileTv.setText(user.getEmail());
-        }
-        else{
+        } else {
             //user not signed in ,go to main activity
-            startActivity(new Intent(getActivity(),MainActivity.class));
+            startActivity(new Intent(getActivity(), LoginActivity.class));
             getActivity().finish();
         }
     }
@@ -125,24 +123,24 @@ public class UsersFragment extends Fragment {
         setHasOptionsMenu(true);//to show menu option in fragment
         super.onCreate(savedInstanceState);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
         //inflating menu
-       // inflater.inflate(R.menu.main_menu,menu);
-        super.onCreateOptionsMenu(menu,inflater);
+        inflater.inflate(R.menu.main_menu,menu);
+        super.onCreateOptionsMenu(menu, inflater);
         // searchView
-        MenuItem item =menu.findItem(R.id.action_search);
+        MenuItem item = menu.findItem(R.id.action_search);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         //search listner
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                if(!TextUtils.isEmpty(s.trim())){
+                if (!TextUtils.isEmpty(s.trim())) {
                     SearchUsers(s);
-                }
-                else{
+                } else {
                     //search text empty
                     getAllUsers();
                 }
@@ -151,10 +149,9 @@ public class UsersFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                if(!TextUtils.isEmpty(s.trim())){
+                if (!TextUtils.isEmpty(s.trim())) {
                     SearchUsers(s);
-                }
-                else{
+                } else {
                     //search text empty
                     getAllUsers();
                 }
@@ -176,17 +173,17 @@ public class UsersFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userslist.clear();
-                for(DataSnapshot ds : snapshot.getChildren()){
+                for (DataSnapshot ds : snapshot.getChildren()) {
                     Model_users model_users = ds.getValue(Model_users.class);
                     //get all users ecxept currently signed
-                    if(!model_users.getUid().equals(fuser.getUid())){
-                        if(model_users.getName().toLowerCase().contains(query.toLowerCase()) || model_users.getEmail().toLowerCase().contains(query.toLowerCase())){
+                    if (!model_users.getUid().equals(fuser.getUid())) {
+                        if (model_users.getName().toLowerCase().contains(query.toLowerCase()) || model_users.getEmail().toLowerCase().contains(query.toLowerCase())) {
                             userslist.add(model_users);
                         }
                         userslist.add(model_users);
                     }
                     //adapter
-                    adapterUsers = new AdapterUsers(getActivity(),userslist);
+                    adapterUsers = new AdapterUsers(getActivity(), userslist);
                     //refresh adapter
                     adapterUsers.notifyDataSetChanged();
 
@@ -208,11 +205,10 @@ public class UsersFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id== R.id.action_logout){
+        if (id == R.id.action_logout) {
             firebaseAuth.signOut();
             checkUserStatus();
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

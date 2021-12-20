@@ -60,49 +60,5 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-      //  inflater.inflate(R.menu.main_menu, menu);
-        //inflating menu
-      //  inflater.inflate(R.menu.main_menu,menu);
-        super.onCreateOptionsMenu(menu,inflater);
-        // searchView
-        MenuItem item =menu.findItem(R.id.action_search);
-
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-        //search listner
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                if(!TextUtils.isEmpty(s.trim())){
-                 //   SearchAllUsers();
-                }
-                else{
-                    //search text empty
-                 //   getALLUsers();
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-
-    }
-    /* handle menu email clicks */
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id== R.id.action_logout){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
 }

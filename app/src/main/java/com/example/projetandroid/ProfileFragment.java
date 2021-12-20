@@ -297,7 +297,7 @@ public class ProfileFragment extends Fragment {
                         else {
                             pickfromGallery();
                         }
-                        pd.setTitle("Updating Cover photo");
+                        pd.setTitle("Updating  photo");
                     }
 
                 }
@@ -449,30 +449,4 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-    // inflate options menu
-
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);//to show menu option in fragment
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.main_menu, menu);
-        super.onCreateOptionsMenu(menu,inflater);
-
-    }
-    /* handle menu email clicks */
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id== R.id.action_logout){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

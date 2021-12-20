@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class DashbordActivity extends AppCompatActivity {
+
     //fireBase auth
     FirebaseAuth firebaseAuth;
     ActionBar actionBar;
@@ -24,11 +25,9 @@ public class DashbordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashbord);
-
         //Actionbar and its title
         actionBar = getSupportActionBar();
         actionBar.setTitle(" Profile");
-
         //init
         firebaseAuth = FirebaseAuth.getInstance();
         //bottom navigation
@@ -41,6 +40,7 @@ public class DashbordActivity extends AppCompatActivity {
         fragmentHomeTransaction.replace(R.id.content,homeFragmentI,"");
         fragmentHomeTransaction.commit();
     }
+
 
     private MenuItem menuItem;
     private BottomNavigationView.OnNavigationItemSelectedListener selectedListener =
@@ -81,9 +81,12 @@ public class DashbordActivity extends AppCompatActivity {
                 }
             };
     private void checkUserStatus(){
+
         //get current user
+
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null){
+
             //user is signed in stay here
             //set email of logged in user
             //mprofileTv.setText(user.getEmail());
@@ -98,6 +101,7 @@ public class DashbordActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+
     }
 
     @Override
@@ -105,11 +109,8 @@ public class DashbordActivity extends AppCompatActivity {
         // check on start of app
         checkUserStatus();
         super.onStart();
-
     }
     // inflate options menu
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
