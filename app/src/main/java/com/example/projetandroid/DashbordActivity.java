@@ -27,18 +27,18 @@ public class DashbordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashbord);
         //Actionbar and its title
         actionBar = getSupportActionBar();
-        actionBar.setTitle(" Profile");
+        actionBar.setTitle("Profile");
         //init
         firebaseAuth = FirebaseAuth.getInstance();
         //bottom navigation
         BottomNavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
-        //home fragment transaction(default,on start
-        actionBar.setTitle("Home");
-        HomeFragment homeFragmentI = new HomeFragment();
-        FragmentTransaction fragmentHomeTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentHomeTransaction.replace(R.id.content,homeFragmentI,"");
-        fragmentHomeTransaction.commit();
+        //profile fragment transaction(default,on start
+        actionBar.setTitle("Profile");
+        ProfileFragment profileFragment = new ProfileFragment();
+        FragmentTransaction fragmentProfileTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentProfileTransaction.replace(R.id.content,profileFragment,"");
+        fragmentProfileTransaction.commit();
     }
 
 
@@ -50,14 +50,6 @@ public class DashbordActivity extends AppCompatActivity {
                     //handle Item click
 
                     switch (item.getItemId()){
-                        case R.id.navigation_home:
-                            //home fragment transaction
-                            actionBar.setTitle("Home");
-                            HomeFragment homeFragment = new HomeFragment();
-                            FragmentTransaction fragmentHomeTransaction = getSupportFragmentManager().beginTransaction();
-                            fragmentHomeTransaction.replace(R.id.content,homeFragment,"");
-                            fragmentHomeTransaction.commit();
-                            return true;
 
                         case R.id.navigation_profile:
                             //profile fragment transaction
@@ -75,6 +67,14 @@ public class DashbordActivity extends AppCompatActivity {
                             FragmentTransaction fragmentUsersTransaction = getSupportFragmentManager().beginTransaction();
                             fragmentUsersTransaction.replace(R.id.content,usersFragment,"");
                             fragmentUsersTransaction.commit();
+                            return true;
+                        case R.id.navigation_chats:
+                            //home fragment transaction
+                            actionBar.setTitle("Chat");
+                            fragment_chat_list chatFragment = new fragment_chat_list();
+                            FragmentTransaction fragmentChatTransaction = getSupportFragmentManager().beginTransaction();
+                            fragmentChatTransaction.replace(R.id.content,chatFragment,"");
+                            fragmentChatTransaction.commit();
                             return true;
                     }
                     return false;
@@ -111,21 +111,5 @@ public class DashbordActivity extends AppCompatActivity {
         super.onStart();
     }
     // inflate options menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
 
-    }
-    /* handle menu email clicks */
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id== R.id.action_logout){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

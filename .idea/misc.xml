@@ -4,23 +4,36 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable-anydpi/ic_users_black.xml" value="0.15" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/bg_receiver.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/bg_sender.xml" value="0.2676923076923077" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_account_box_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.15" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_face_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_perm_contact_calendar_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2755208333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_baselinev_face_24.xml" value="0.15" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2755208333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_chat.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_dashbord.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_profile.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_registrer.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_teste.xml" value="0.23596014492753623" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_teste2.xml" value="0.2078804347826087" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/activity_teste3.xml" value="0.2078804347826087" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/fragment_chat_list.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/fragment_home.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/fragment_users.xml" value="0.13385416666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/row_chat_left.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/row_chat_right.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/layout/row_users.xml" value="0.4" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/menu/main_menu.xml" value="0.259375" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/projetAndroid/app/src/main/res/menu/menu_navigateur.xml" value="0.259375" />

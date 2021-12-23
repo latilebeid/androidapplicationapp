@@ -1,6 +1,6 @@
-package com.example.projetandroid;
+package com.example.projetandroid.adapters;
 import android.content.Context;
-import android.media.Image;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +10,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.projetandroid.ChatActivity;
+import com.example.projetandroid.LoginActivity;
+import com.example.projetandroid.R;
+import com.example.projetandroid.models.Model_users;
+import com.example.projetandroid.testeActivity;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
@@ -19,6 +25,7 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
     public AdapterUsers(Context context, List<Model_users> usersList) {
         this.context = context;
         this.usersList = usersList;
+
     }
     @NonNull
     @Override
@@ -29,24 +36,33 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
     }
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int i) {
+        //get data
+        String hisUid = usersList.get(i).getUid();
     //recuperation de données
         String userImage = usersList.get(i).getImage();
         String userName = usersList.get(i).getName();
-        String userEmail = usersList.get(i).getEmail();
-        Toast.makeText(context, ""+ userEmail, Toast.LENGTH_SHORT).show();
+       final String userEmail = usersList.get(i).getEmail();
+       // Toast.makeText(context, ""+ userEmail, Toast.LENGTH_SHORT).show();
     //set data
         holder.mNameTv.setText(userName);
         holder.mEmailTv.setText(userEmail);
+
         try{
-            Picasso.get().load(userImage).placeholder(R.drawable.ic_baselinev_face_24).into(holder.mAvatarIv);
+
+            Picasso.get().load(userImage).into(holder.mAvatarIv);
+
         }
         catch (Exception e) {
-
+          //  Toast.makeText(context, "Exception1", Toast.LENGTH_SHORT).show();
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, ""+ userEmail, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context, ""+ userEmail, Toast.LENGTH_SHORT).show();
+             Intent intent = new Intent(context, testeActivity.class);
+             /// Intent intent = new Intent(context, ChatActivity.class);
+                intent.putExtra("hisUid",hisUid);
+                context.startActivity(intent);
             }
         });
     }

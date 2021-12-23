@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".testeActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/teste_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#5E35B1"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!--receiver profile picture-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/teste_profileIV"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_face_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!-- Reciever name-->
+            <TextView
+                android:id="@+id/test_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="His Name"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <!--Reciever Status :online or offline-->
+            <TextView
+                android:id="@+id/test_userStatusTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="onLine"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+    <!--RecyclerView-->
+     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/teste_recyclerviewr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teste_toolbar"/>
+    <!--send message edit text and button in layout-->
+    <!--send message edit text and button in layout-->
+
+    <!--send message edit text and button in layout-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <!--EditText: input message-->
+        <EditText
+            android:id="@+id/teste_messageEt"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="starttyping"
+            android:padding="15dp"
+            android:inputType="textCapSentences|textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <!-- Button : send message-->
+        <ImageButton
+            android:id="@+id/teste_sendBtn"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_send_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

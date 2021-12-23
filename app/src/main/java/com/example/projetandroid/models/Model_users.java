@@ -1,17 +1,17 @@
-package com.example.projetandroid;
+package com.example.projetandroid.models;
 
 public class Model_users {
-    String name, email,search, phone , image, cover , uid;
+    String name, email,search, phone , Image, cover , uid;
 
     public Model_users() {
     }
 
-    public Model_users(String name, String email, String search, String phone, String image, String cover, String uid) {
+    public Model_users(String name, String email, String search, String phone, String Image, String cover, String uid) {
         this.name = name;
         this.email = email;
         this.search = search;
         this.phone = phone;
-        this.image = image;
+        this.Image = Image;
         this.cover = cover;
         this.uid = uid;
     }
@@ -49,11 +49,11 @@ public class Model_users {
     }
 
     public String getImage() {
-        return image;
+        return Image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(String Image) {
+        this.Image = Image;
     }
 
     public String getCover() {

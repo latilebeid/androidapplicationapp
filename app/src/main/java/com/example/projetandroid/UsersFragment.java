@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.projetandroid.adapters.AdapterUsers;
+import com.example.projetandroid.models.Model_users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,12 +29,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.ktx.Firebase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-
 
 public class UsersFragment extends Fragment {
 
@@ -45,27 +44,26 @@ public class UsersFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup ViewGroup,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_users, ViewGroup, false);
+
         firebaseAuth = FirebaseAuth.getInstance();
+
         //init recycler view
         recyclerView = view.findViewById(R.id.user_recyclerview);
+
         //set it's properties
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         userslist = new ArrayList<>();
 
         //getAll users
-
         getAllUsers();
 
         return view;
-
     }
 
     private void getAllUsers() {
@@ -73,6 +71,7 @@ public class UsersFragment extends Fragment {
         FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
         //get path of databse named Users
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+
         //get all data from path
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -81,12 +80,15 @@ public class UsersFragment extends Fragment {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Model_users model_users = ds.getValue(Model_users.class);
                     //get all users ecxept currently signed
+           //         Toast.makeText(getActivity(), "e10", Toast.LENGTH_SHORT).show();
                     if (!model_users.getUid().equals(fuser.getUid())) {
+             //           Toast.makeText(getActivity(), "e11", Toast.LENGTH_SHORT).show();
+
                         userslist.add(model_users);
                     }
                     //adapter
                     adapterUsers = new AdapterUsers(getActivity(), userslist);
-
+               //     Toast.makeText(getActivity(), "e12", Toast.LENGTH_SHORT).show();
                     //set adapter  to recycler view
                     recyclerView.setAdapter(adapterUsers);
                 }
@@ -98,9 +100,7 @@ public class UsersFragment extends Fragment {
             }
         });
 
-
     }
-
     private void checkUserStatus() {
         //get current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -114,13 +114,10 @@ public class UsersFragment extends Fragment {
             getActivity().finish();
         }
     }
-
     // inflate options menu
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);//to show menu option in fragment
+       setHasOptionsMenu(true);//to show menu option in fragment
         super.onCreate(savedInstanceState);
     }
 
@@ -132,7 +129,6 @@ public class UsersFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
         // searchView
         MenuItem item = menu.findItem(R.id.action_search);
-
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         //search listner
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -180,8 +176,10 @@ public class UsersFragment extends Fragment {
                         if (model_users.getName().toLowerCase().contains(query.toLowerCase()) || model_users.getEmail().toLowerCase().contains(query.toLowerCase())) {
                             userslist.add(model_users);
                         }
-                        userslist.add(model_users);
+
+                     //   userslist.add(model_users);
                     }
+
                     //adapter
                     adapterUsers = new AdapterUsers(getActivity(), userslist);
                     //refresh adapter
@@ -198,8 +196,8 @@ public class UsersFragment extends Fragment {
             }
         });
 
-
     }
+
     /* handle menu email clicks */
 
     @Override
