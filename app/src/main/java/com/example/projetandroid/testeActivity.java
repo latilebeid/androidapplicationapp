@@ -1,14 +1,6 @@
 package com.example.projetandroid;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-//import android.icu.text.SimpleDateFormat;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -20,6 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetandroid.adapters.AdapterChat;
 import com.example.projetandroid.models.ModelChat;
@@ -33,13 +30,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.text.BreakIterator;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -63,7 +55,7 @@ public class testeActivity extends AppCompatActivity {
     AdapterChat adapterChat;
      String hisUid;
      String myUid;
-      String hisImage;
+     String hisImage;
      String name;
     TextView test_userStatusTv;
     private TextView userStatusTv;
@@ -73,7 +65,7 @@ public class testeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teste3);
         toolbar = findViewById(R.id.teste_toolbar);
         messageEt = findViewById(R.id.teste_messageEt);
-        // setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         toolbar.setTitle("");
         recyclerView=findViewById(R.id.teste_recyclerviewr);
         teste_nameTv = findViewById(R.id.test_tv);
@@ -118,7 +110,7 @@ public class testeActivity extends AppCompatActivity {
                         if(onlineStatus.equals("online")){
                             Toast.makeText(testeActivity.this, "online ", Toast.LENGTH_SHORT).show();
                             test_userStatusTv.setText(onlineStatus);
-                            readMessages(hisImage);
+
                         }
                         else{
                             Toast.makeText(testeActivity.this, "online "+hisImage, Toast.LENGTH_SHORT).show();
@@ -127,7 +119,7 @@ public class testeActivity extends AppCompatActivity {
                             String dataTime = android.text.format.DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
                             // Toast.makeText(testeActivity.this, " "+dateTime, Toast.LENGTH_SHORT).show();
                             test_userStatusTv.setText("last seen at : "+dataTime);
-                            readMessages(hisImage);
+
 
                         }
 
@@ -158,7 +150,8 @@ public class testeActivity extends AppCompatActivity {
                 }
             });
         Toast.makeText(this, "image houna "+ hisImage, Toast.LENGTH_SHORT).show();
-          readMessages(hisImage);
+          readMessages();
+          seenMessage();
         }
 
 
@@ -187,8 +180,8 @@ public class testeActivity extends AppCompatActivity {
         });
     }
 
-    private void readMessages(String hisImage1) {
-        Toast.makeText(testeActivity.this, "latifa  111: "+hisImage1, Toast.LENGTH_SHORT).show();
+    private void readMessages() {
+       // Toast.makeText(testeActivity.this, "latifa  111: "+hisImage, Toast.LENGTH_SHORT).show();
         chatList = new ArrayList<>();
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("Chats");
         dbRef.addValueEventListener(new ValueEventListener() {
@@ -202,7 +195,7 @@ public class testeActivity extends AppCompatActivity {
                         chatList.add(chat);
                     }
                     //adapter
-                    Toast.makeText(testeActivity.this, "image : "+hisImage1, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(testeActivity.this, "image : "+hisImage, Toast.LENGTH_SHORT).show();
                     adapterChat = new AdapterChat(testeActivity.this,chatList,hisImage);
                     adapterChat.notifyDataSetChanged();
                     //set adapter to recyclerview

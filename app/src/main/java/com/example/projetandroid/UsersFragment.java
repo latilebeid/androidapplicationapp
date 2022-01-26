@@ -2,6 +2,13 @@ package com.example.projetandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,15 +17,6 @@ import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.projetandroid.adapters.AdapterUsers;
 import com.example.projetandroid.models.Model_users;
@@ -168,7 +166,9 @@ public class UsersFragment extends Fragment {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 userslist.clear();
+
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Model_users model_users = ds.getValue(Model_users.class);
                     //get all users ecxept currently signed
@@ -186,7 +186,9 @@ public class UsersFragment extends Fragment {
                     adapterUsers.notifyDataSetChanged();
 
                     //set adapter  to recycler view
+
                     recyclerView.setAdapter(adapterUsers);
+
                 }
             }
 
